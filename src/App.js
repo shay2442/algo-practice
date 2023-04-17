@@ -1,9 +1,27 @@
 import { useState } from "react";
 import "./App.css";
+
 // import { ageToVote } from './utils'
 
 function App() {
   const myArray = ["apple", "orange", "banana"];
+  const [count, setCount] = useState(0)
+  const [like, setLike] = useState(0)
+
+  // function handleLikes(e) {
+  //   const confCounts = {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({"likes": likes + 1})
+  //   }
+  //   fetch
+  // }
+
+  function handleLikes(){
+    setCount(count +1)
+  }
 
   const myList = myArray.map((item) => <p>{item}</p>);
 
@@ -11,7 +29,7 @@ function App() {
     return a.item - b.item;
   });
 
-  console.log(sortList);
+  // console.log(sortList);
 
   // var ageToVoteTest =
 
@@ -100,9 +118,12 @@ users.filter((user) => user.age >= 18);
   var str = "I love to go on walks.";
   var strSplit = str.split(" ", 3);
   // console.log(strSplit);
-  console.log("canVote", canVote);
+  // console.log("canVote", canVote);
   return (
     <div className="App">
+
+     <h1>{like}</h1>
+     <button onClick = {() => setLike(like + 1)}>Like</button>
       <h1>hello world</h1>
       <h1>{numbersSum}</h1>
       <p>{myList}</p>
